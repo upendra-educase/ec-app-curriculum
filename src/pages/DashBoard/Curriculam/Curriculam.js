@@ -1,12 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Card } from 'react-bootstrap'
 import leftArrow from "../../../images/leftArrow.svg"
 import ButtonComponent from '../../../components/button/ButtonComponent'
+// import DataTable from './DataTable'
+import DataTable from '../../../components/DataTable/DataTable'
 import "./curriculam.css"
 
 const Curriculam = () => {
+  const [currentPage, setCurrentPage] = useState(1)
+  const tableData = [{}, {}, {}, {}, {}]
+  const columns = [{
+    name: 'Category',
+    cell: () => (<>Hejxijvjdfiv</>)
+  },
+  {
+    name: 'Category',
+    cell: () => (<>Hejxijvjdfiv</>)
+  },
+  {
+    name: 'Category',
+    cell: () => (<>Hejxijvjdfiv</>)
+  },
+  {
+    name: 'Category',
+    cell: () => (<>Hejxijvjdfiv</>)
+  }
+  ]
   return (
-    <div>
+    <>
       <Card  >
         <div className='d-flex justify-content-between align-items-center p-4 flex-wrap'>
 
@@ -23,7 +44,17 @@ const Curriculam = () => {
 
         </div>
       </Card>
-    </div>
+      <Card>
+        <DataTable
+          noHeader={false}
+          paginate={true}
+          paginationServer
+          columns={columns}
+          currentPage={currentPage}
+          tableData={tableData}
+        />
+      </Card>
+    </>
   )
 }
 
