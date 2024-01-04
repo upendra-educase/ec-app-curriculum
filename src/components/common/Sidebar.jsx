@@ -9,8 +9,7 @@ import { Disc, Circle, X } from "react-feather";
 import { Card } from "react-bootstrap";
 import "./sidebar.css";
 
-const Sidebar = () => {
-  const [isAsideOpen, setAsideOpen] = useState(true);
+const Sidebar = ({isAsideOpen, setAsideOpen}) => {
   const [state, setState] = useState("Home");
   const [showIcon, setShowIcon] = useState("7");
 
@@ -23,37 +22,40 @@ const Sidebar = () => {
   // };
 
   return (
-    // <aside className='h-screen'>
-    //   <nav className='h-full flex flex-col bg-white border-r shadow-sm'>
-    //     <div className='p-4 pb-2 flex justify-between items-center'>
-    //       <div className='text-2xl font-bold'>Logo of the side bar </div>
-    //     </div>
-    //   </nav>
-    // </aside>
-
     <div className="aside-bar-container">
       <div>
         <Card
-          className={`aside-bar ${isAsideOpen ? "open" : ""}`}
+          className={`aside-bar ${isAsideOpen ? "hide" : ""}`}
           style={{ boxShadow: "0px 4px 18px 0px #0000001A" }}
         >
           <div className="px-4 pt-4 float-end">
             {showIcon === "34" ? (
               <X color="#4D8EFF" />
-            ) : showIcon === "33" ? (
-              <Circle color="#4D8EFF" />
+            ) : isAsideOpen ? (
+              <Circle
+                className="float-end"
+                color="#4D8EFF"
+                onClick={() => setAsideOpen(!isAsideOpen)}
+              />
             ) : (
-              <Disc className="float-end" color="#4D8EFF" />
+              <Disc
+                className="float-end"
+                color="#4D8EFF"
+                onClick={() => setAsideOpen(!isAsideOpen)}
+              />
             )}
           </div>
           <div className="content">
             <ul style={{ listStyleType: "none", padding: "0 2rem" }}>
-              <div className="menu-title">Main Menu</div>
+              <div className="menu-title">
+                {!isAsideOpen ? "Main Menu" : "..."}
+              </div>
               {navigation.map((element, ind) => {
                 return (
                   <li
                     className={`${ind === 0 ? "mt-4" : ""} sideBarList`}
                     style={{
+                      minWidth: "2.6rem",
                       backgroundColor:
                         state === element.title ? " #4D8EFF" : "",
                       borderRadius: "10px",
@@ -86,7 +88,7 @@ const Sidebar = () => {
                           fontWeight: state === element.title ? "800" : "",
                         }}
                       >
-                        {element.title}
+                        {!isAsideOpen && element.title}
                       </div>
                     </NavLink>
                   </li>
@@ -96,19 +98,6 @@ const Sidebar = () => {
           </div>
         </Card>
       </div>
-
-      {/* <div style={{ flex: 1, marginLeft: !isAsideOpen ? "200px" : "400px" }}>
-        <Routes>
-          <Route exact path="/modules/home" element={<Home />} />
-          <Route exact path="/modules/curriculam" element={<Curriculam />} />
-          <Route exact path="/modules/schools" element={<Schools />} />
-          <Route
-            exact
-            path="/modules/subscriptions"
-            element={<Subscriptions />}
-          />
-        </Routes>
-      </div> */}
     </div>
   );
 };
