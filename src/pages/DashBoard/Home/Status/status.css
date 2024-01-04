@@ -1,0 +1,44 @@
+.status-section-upper-div h1 {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.status-section-upper-div .status-search-section {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 247px;
+    height: 38px;
+    border-radius: 100px;
+    background: #C4C4C426 !important;
+    padding: 1rem;
+}
+
+.status-search-section input {
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+}
+
+.status-section-lower-div-image {
+    Width: 58px;
+    Height: 58.07px;
+    background-color: rgb(239, 245, 255);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.subject-status h3 {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+}
+
+.subject-status p {
+    font-size: 14px;
+    font-weight: 500;
+}

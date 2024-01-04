@@ -1,0 +1,38 @@
+.home-recent-div-image {
+    Width: 79px;
+    Height: 79.09px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(239, 245, 255);
+    border-radius: 10px;
+}
+
+.subject-details-recent-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+}
+
+.subject-details-recent-section p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    background-color: rgb(254, 255, 208);
+}
+
+.subject-details-recent-section h2 {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.subject-details-recent-section p span {
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+    letter-spacing: 0em;
+
+}

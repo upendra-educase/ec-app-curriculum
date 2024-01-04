@@ -1,0 +1,74 @@
+.main-container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to left, blue 0 40% , #ffff 40% 100%);
+}
+
+.login-container {
+    /* background-color: aliceblue; */
+    display: flex;
+    gap: 2rem;
+    padding: 4rem;
+    min-width: 65%;
+}
+
+.left-side{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+
+.left-side h1{
+    font-weight: 700;
+    font-size: 40px;
+    color: #484848;
+}
+.left-side .left-upper-section span{
+    font-weight: 400;
+    font-size: 20px;
+    color: #838383;
+
+
+}
+.form-floating {
+  position: relative;
+}
+.form-floating .halfeye-icon{
+    position: absolute;
+    top: 20px;
+     right: 20px;
+     cursor: pointer;
+}
+
+.form-floating #floatingInput , .form-floating #floatingPassword { 
+    border-radius: 20px !important;
+}
+
+.common-style{
+    font-size: 12px;
+    font-weight: 400;
+    color: #838383;
+    ;
+}
+.right-side {
+    width: 593.29px;
+    height: 597px;
+}
+.right-side img{
+    height: 100%;
+    width: 100%;
+}
+.last-div-element{
+    font-weight: 400;
+    font-size: 14px;
+    color: #838383;
+
+}
+.last-div-element p span{
+    font-weight: 600;
+}

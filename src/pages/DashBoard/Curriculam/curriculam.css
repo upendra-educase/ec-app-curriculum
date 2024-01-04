@@ -1,0 +1,12 @@
+.left-arrow-image {
+    width: 41px;
+    height: 41px;
+    border-radius: 8px;
+  cursor: pointer;
+}
+
+.left-arrow-image+h2 {
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 37px;
+}

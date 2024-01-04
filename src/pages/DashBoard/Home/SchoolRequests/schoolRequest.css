@@ -1,0 +1,25 @@
+.school-name h2 {
+
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0em;
+
+    color: #4D8EFF;
+
+}
+
+.school-name p {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+}
+
+.school-name span {}
+
+.school-request-section span {
+    font-weight: 500;
+    font-size: 20px;
+    color: #838383;
+
+}
