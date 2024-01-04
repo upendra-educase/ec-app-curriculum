@@ -1,17 +1,10 @@
-.aside-bar-container {
+/* .aside-bar-container {
     display: flex;
     background-color: #FAFAFA;
-    transition: all 0.5s ease-out;
-}
-
-.aside-bar-container:hover {
-    display: none;
-}
+} */
 
 .aside-bar {
-    min-width: 200px;
-    max-width: 400px;
-    width: 200px;
+    width: 400px;
     height: 100vh;
     background-color: #ffffff;
     /* background-color:rgba(126, 172, 157, 0.637); */
@@ -19,12 +12,17 @@
     color: #fff;
     display: flex;
     flex-direction: column;
+    transition: all .7s;
     /* align-items: center;
     justify-content: center; */
-    transition: width 0.3s ease;
     box-shadow: 0px 4px 18px 0px #0000001A;
-    position: fixed;
+    /* position: fixed; */
+    overflow: hidden;
+}
 
+.hide {
+    width: 7rem;
+    transition: all .7s;
 }
 
 .sideBarList {
@@ -60,6 +58,15 @@
 
 @media only screen and (max-width: 1024px) {
     .aside-bar-container {
-        display: none;
+        z-index: 100;
+       position: fixed;
+       left: 0;
+       top: 0;
+       bottom: 0;
+       
+    }
+    .hide{
+        transition: all .7s;
+        width: 0;
     }
 }
