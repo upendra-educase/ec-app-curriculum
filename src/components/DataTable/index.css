@@ -1,0 +1,42 @@
+/* Style the container of the DataTable */
+.dataTableContainer {
+    width: 100%;
+    margin: 20px;
+  }
+  
+  /* Style the DataTable */
+  .dataTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  /* Style the header of the DataTable */
+  .dataTable thead {
+    background-color: #f2f2f2;
+  }
+  
+  /* Style the header cells of the DataTable */
+  .dataTable th {
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+    color: #333; /* Header text color */
+  }
+  
+  /* Style the rows of the DataTable */
+  .dataTable tbody {
+    background-color: #fff;
+  }
+  
+  /* Style the cells of the DataTable */
+  .dataTable td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Style the pagination */
+  .dataTablePagination {
+    margin-top: 20px;
+  }
