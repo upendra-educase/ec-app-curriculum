@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, Route, Routes } from "react-router-dom";
 import Home from "../../pages/DashBoard/Home/Home";
 import navigation from "../navigation/navigation";
@@ -9,28 +9,70 @@ import { Disc, Circle, X } from "react-feather";
 import { Card } from "react-bootstrap";
 import "./sidebar.css";
 
-const Sidebar = ({isAsideOpen, setAsideOpen}) => {
+const Sidebar = ({ isAsideOpen, setAsideOpen }) => {
   const [state, setState] = useState("Home");
   const [showIcon, setShowIcon] = useState("7");
+
+ 
+  const [isScreenSmall, setIsScreenSmall] = useState(window.innerWidth < 1200);
+
+  useEffect(() => {
+    // Function to update the state based on the screen width
+    const updateScreenSize = () => {
+      setIsScreenSmall(window.innerWidth < 1024);
+      if(window.innerWidth < 1200){
+        setAsideOpen(true)
+      }else if(window.innerWidth>=1200){
+        setAsideOpen(false)
+      }
+    };
+     
+    console.log("console in the use Effect=========>" , isAsideOpen) 
+
+    // Attach the event listener when the component mounts
+    window.addEventListener('resize', updateScreenSize);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('resize', updateScreenSize);
+    };
+  }); // Empty dependency array to run the effect only once when the component mounts
+
 
   function handleFunction(element) {
     setState(element);
   }
 
+  // function handleHoverEffect(){
+  //  if(isAsideOpen){
+  //   setAsideOpen(!isAsideOpen)
+  //  }
+  //  else if(!isAsideOpen){
+  //   setAsideOpen(!isAsideOpen)
+  //  }
+  // } 
+
   // const toggleAside = () => {
   //   setAsideOpen(!isAsideOpen);
   // };
+ 
+
 
   return (
-    <div className="aside-bar-container">
+    <div className={`aside-bar-container ${!isAsideOpen ? 'margin-right ' : 'margin-right-not  '}  `} 
+    // onMouseEnter={e => handleHoverEffect()} onMouseLeave={e => handleHoverEffect()}
+    >
       <div>
         <Card
           className={`aside-bar ${isAsideOpen ? "hide" : ""}`}
           style={{ boxShadow: "0px 4px 18px 0px #0000001A" }}
         >
           <div className="px-4 pt-4 float-end">
-            {showIcon === "34" ? (
-              <X color="#4D8EFF" />
+            {showIcon === "34" || window.innerWidth < 1200 ? (
+              <X color="#4D8EFF" 
+              className="float-end"
+              onClick={() => setAsideOpen(!isAsideOpen)}
+              />
             ) : isAsideOpen ? (
               <Circle
                 className="float-end"
