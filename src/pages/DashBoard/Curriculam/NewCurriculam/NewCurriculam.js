@@ -6,12 +6,19 @@ import { useNavigate } from 'react-router-dom'
 import { Card, FormGroup } from 'react-bootstrap'
 import CustomInput from '../../../../components/CustomInput/CustomInput'
 import "./NewCurriculam.css"
+import DropDown from '../../../../components/DropDown/DropDown'
 
 const NewCurriculam = () => {
 
     const navigation = useNavigate()
 
     const [newCurriculamState, setNewCurriculamState] = useState('basic-details')
+    const [country, setCountry] = useState(null)
+    const [selectedOption, setSelectedOption] = useState(null);
+
+    function handleDropdown(countryName){
+        setCountry(countryName)
+    }
 
     function handleCurriculamState() {
         if (newCurriculamState === 'basic-details') {
@@ -21,6 +28,16 @@ const NewCurriculam = () => {
         }
     }
 
+    const category = [
+        { value: 'chocolate', label: 'Chocolate' },
+        { value: 'strawberry', label: 'Strawberry' },
+        { value: 'vanilla', label: 'Vanilla' },
+        { value: 'kitkat', label: 'KitKat' },
+        { value: '5-star', label: '5-Star' },
+        { value: 'bunch', label: 'Bunch' },
+      ];
+
+     console.log(document.getElementById('selectCategory').value)
     return (
         <div>
             <div className='d-flex align-items-center gap justify-content-between p-2 mx-2' >
@@ -37,29 +54,53 @@ const NewCurriculam = () => {
 
 
             <Card className='m-4  ' >
-                <div className='d-flex'>
+                <div className='d-flex flex-wrap'>
                     <div className='d-flex flex-column new-curriculam-first-part-section  ' >
                         <div className='d-flex justify-content-between basic-details-content-div'>
                             <span onClick={e => handleCurriculamState()} style={{ color: newCurriculamState === 'basic-details' ? '#4D8EFF' : '#C4C4C4', borderBottom: newCurriculamState === 'basic-details' ? '4px solid #4D8EFF' : '#C4C4C4', cursor: 'pointer' }} >Basic Details</span>
                             <span onClick={e => handleCurriculamState()} style={{ color: newCurriculamState === 'content' ? '#4D8EFF' : '#C4C4C4', borderBottom: newCurriculamState === 'content' ? '4px solid #4D8EFF' : '#C4C4C4', cursor: 'pointer' }}>Content</span>
                         </div>
-                        <div className='p-3 details-section'>
+                        <div className='p-3 details-section d-flex flex-column gap'>
                             <CustomInput
-                                placeholder={'Enter-Title'}
+                                placeholder={'Enter Title'}
+                                className={'w-100 curriclam-side-input-section'}
                             />
-
-
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" placeholder='Enter Description'></textarea>
+                            {/* <Dropdown
+                                data={[
+                                    { value: 1, label: 'India' },
+                                    { value: 2, label: 'USA' },
+                                    { value: 3, label: 'UK' },
+                                    { value: 4, label: 'Germany' },
+                                    { value: 5, label: 'Russia' },
+                                    { value: 5, label: 'Italy' },
+                                ]}
+                                styleClass='mt-3'
+                                value={country}
+                                placeholder='Select Country'
+                                onChange={handleDropdown}
+                            /> */}
+                             <DropDown 
+                             
+                             options={category}
+                             placeholder="Select Category"
+                             defaultValue={selectedOption}
+                             onChange={setSelectedOption}
+                             isClearable={true}
+                             id={'selectCategory'}
+                             />
 
                         </div>
                         <div className='new-curriculam-sidebar-last'>
-                            <div>
-                                <div>
-                                    <span>Private/Public</span>
-                                    <span>Set the curriculum public  </span>
+                            <div className='d-flex justify-content-between align-items-center mb-4'>
+                                <div className='d-flex flex-column' >
+                                    <span className='private-public-span'>Private/Public</span>
+                                    <span className='setcurriculam-span'>Set the curriculum public  </span>
                                 </div>
+                                <div>Toggle button</div>
                             </div>
                             <div>
-                                <ButtonComponent buttonType={'primary'} title={'Next'} />
+                                <button type="button" className="btn btn-primary w-100 py-2">Next</button>
                             </div>
                         </div>
                     </div>
