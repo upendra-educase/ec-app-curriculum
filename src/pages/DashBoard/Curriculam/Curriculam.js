@@ -7,7 +7,7 @@ import NewCurriculam from './NewCurriculam/NewCurriculam'
 
 const Curriculam = () => {
 
-   const[curriculamState , setCurriculamState] = useState('Curriculam')
+   const [curriculamState , setCurriculamState] = useState('Curriculam')
 
   return (
     <div>

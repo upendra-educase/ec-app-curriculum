@@ -3,10 +3,14 @@ import leftArrow from "../../../../images/leftArrow.svg"
 import newcurriculamImage from "../../../../images/newcurriculam.svg"
 import ButtonComponent from '../../../../components/button/ButtonComponent'
 import { useNavigate } from 'react-router-dom'
-import { Card, FormGroup } from 'react-bootstrap'
+import { Button, Card, CardBody, CardSubtitle, CardText, CardTitle, FormGroup } from 'react-bootstrap'
 import CustomInput from '../../../../components/CustomInput/CustomInput'
 import "./NewCurriculam.css"
 import DropDown from '../../../../components/DropDown/DropDown'
+import CardWithImage from '../../../../components/common/CardWithImage'
+import cross from '../../../../images/+.svg'
+import AddLinkModal from '../../../../components/common/AddLinkModal'
+import SchoolCard from '../../../../components/common/SchoolCard'
 
 const NewCurriculam = () => {
 
@@ -14,9 +18,9 @@ const NewCurriculam = () => {
 
     const [newCurriculamState, setNewCurriculamState] = useState('basic-details')
     const [country, setCountry] = useState(null)
-    const [selectedOption, setSelectedOption] = useState(null);
+    // const [selectedOption, setSelectedOption] = useState(null);
 
-    function handleDropdown(countryName){
+    function handleDropdown(countryName) {
         setCountry(countryName)
     }
 
@@ -35,12 +39,12 @@ const NewCurriculam = () => {
         { value: 'kitkat', label: 'KitKat' },
         { value: '5-star', label: '5-Star' },
         { value: 'bunch', label: 'Bunch' },
-      ];
+    ];
 
-     console.log(document.getElementById('selectCategory').value)
+    
     return (
         <div>
-            <div className='d-flex align-items-center gap justify-content-between p-2 mx-2' >
+            {/* <div className='d-flex align-items-center gap justify-content-between p-2 mx-2' >
                 <div className='d-flex .align-items-center gap'>
                     <div onClick={e => navigation(-1)} style={{ cursor: "pointer" }} >
                         <img src={leftArrow} />
@@ -66,29 +70,16 @@ const NewCurriculam = () => {
                                 className={'w-100 curriclam-side-input-section'}
                             />
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" placeholder='Enter Description'></textarea>
-                            {/* <Dropdown
-                                data={[
-                                    { value: 1, label: 'India' },
-                                    { value: 2, label: 'USA' },
-                                    { value: 3, label: 'UK' },
-                                    { value: 4, label: 'Germany' },
-                                    { value: 5, label: 'Russia' },
-                                    { value: 5, label: 'Italy' },
-                                ]}
-                                styleClass='mt-3'
-                                value={country}
-                                placeholder='Select Country'
-                                onChange={handleDropdown}
-                            /> */}
-                             <DropDown 
-                             
-                             options={category}
-                             placeholder="Select Category"
-                             defaultValue={selectedOption}
-                             onChange={setSelectedOption}
-                             isClearable={true}
-                             id={'selectCategory'}
-                             />
+                            
+                            <DropDown
+
+                                options={category}
+                                placeholder="Select Category"
+                                defaultValue={selectedOption}
+                                onChange={setSelectedOption}
+                                isClearable={true}
+                                id={'selectCategory'}
+                            />
 
                         </div>
                         <div className='new-curriculam-sidebar-last'>
@@ -115,7 +106,14 @@ const NewCurriculam = () => {
 
 
                 </div>
-            </Card>
+            </Card> */}
+            <CardWithImage />
+
+            <AddLinkModal />
+
+            <SchoolCard />
+
+
         </div>
     )
 }
