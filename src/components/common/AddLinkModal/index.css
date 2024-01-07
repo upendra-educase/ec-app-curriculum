@@ -1,0 +1,17 @@
+.add-link-modal-input{
+    border: 1px solid #C0C0C0;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+}
+.button-part-addlinkmodal{
+    align-self: flex-end;
+}
+.add-local-input-section{
+    height: 113px;
+    border: 1px solid #C0C0C0;
+    border-radius: 10px;
+    outline: none;
+}
+.last-btn-local-section{
+    align-self: flex-end;
+}
