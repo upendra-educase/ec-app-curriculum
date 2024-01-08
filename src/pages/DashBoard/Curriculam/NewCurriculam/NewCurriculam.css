@@ -1,6 +1,6 @@
 .new-curriculam-first-part-section {
     border-right: 0.5px solid #A7A7A7;
-    
+
 }
 
 .basic-details-content-div {
@@ -36,6 +36,7 @@
     margin: 0;
     padding: 0;
 }
+
 /* .new-curriculam-second-part-section{
    min-width: 1000px;
    overflow-x: scroll;
@@ -52,7 +53,23 @@
     text-wrap: nowrap; */
     /* min-width: 1000px !important; */
     /* overflow: scroll !important; */
-    
+
+}
+
+.add-curriculam-section-div {
+    background-color: #EDF4FF;
+    padding: 0.4rem;
+    border-radius: 10px;
+    color: #838383;
+
+}
+
+.add-curriculam-section-div h2 {
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0;
+
 }
 
 .private-public-span {
@@ -70,9 +87,29 @@
     color: #C4C4C4;
 
 }
-.curriclam-side-input-section{
+
+.curriclam-side-input-section {
     border: 1px solid #C0C0C0;
     /* outline: none; */
     border-radius: 10px;
     padding: 1rem;
+}
+
+
+
+/* Curriculam Section Modal */
+
+.curriculam-modal-section-part1 p , .curriculam-modal-section-part2 p  {
+    margin: 0;
+}
+
+.curriculam-modal-section-part1 h2 , .curriculam-modal-section-part2 h2  {
+    font-size: 26px;
+    font-weight: 500;
+}
+.curriculam-modal-section-part1 p , .curriculam-modal-section-part2 p{
+    color: #838383;
+}
+.curriculam-modal-section-part1 p span , .curriculam-modal-section-part2 p span{
+    color: #1D1D17;
 }
