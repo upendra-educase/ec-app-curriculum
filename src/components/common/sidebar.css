@@ -24,13 +24,13 @@
     z-index: 1000;
 }
 
-.margin-right{
-margin-right: 23rem;
-transition: all .7s;
+.margin-right {
+    margin-right: 23rem;
+    transition: all .7s;
 
-}  
+}
 
-.expandable:hover{
+.expandable:hover {
     width: 400px;
     height: 100vh;
     background-color: #ffffff;
@@ -51,7 +51,7 @@ transition: all .7s;
     z-index: 1000;
 }
 
-.margin-right-not{
+.margin-right-not {
     margin-right: 8rem;
     transition: all .7s;
 }
@@ -92,16 +92,73 @@ transition: all .7s;
     color: #838383;
 }
 
+.end-profile-section-sidebar {
+
+    /* background-color: #a22e2e; */
+    color: #4D8EFF;
+    position: absolute;
+    bottom: 0rem;
+    /* left: 2rem; */
+    width: 100%;
+    border-top: 0.5px solid #B8B8B8
+}
+
+.profile-name {
+    font-size: 20px;
+    font-weight: 400;
+    color: #1D1D17;
+
+}
+
+.profile-short-name {
+    font-size: 14px;
+    font-weight: 400;
+    color: #C4C4C4;
+
+}
+
+.profile-image-section {
+    width: 57px;
+    height: 57px;
+    border: 4px solid #4D8EFF;
+    border-radius: 50%;
+    padding: 2px;
+
+}
+
+.profile-image-section img {
+    height: 100%;
+    width: 100%;
+}
+
+.status-profile {
+    background-color: #EDF4FF;
+    border-radius: 10px;
+}
+
+.complete-percentage {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.complete-profile-setup {
+    font-size: 11px;
+    font-weight: 400;
+    color: #838383;
+
+}
+
 @media only screen and (max-width: 1200px) {
     .aside-bar-container {
         z-index: 100;
-       position: fixed;
-       left: 0;
-       top: 0;
-       bottom: 0;
-       /* background-color: #a22e2e; */
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        /* background-color: #a22e2e; */
     }
-    .hide{
+
+    .hide {
         transition: all .7s;
         width: 0;
     }
