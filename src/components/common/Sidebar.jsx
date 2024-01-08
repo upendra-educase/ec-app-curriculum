@@ -26,8 +26,6 @@ const Sidebar = ({ isAsideOpen, setAsideOpen }) => {
         setAsideOpen(false)
       }
     };
-     
-    console.log("console in the use Effect=========>" , isAsideOpen) 
 
     // Attach the event listener when the component mounts
     window.addEventListener('resize', updateScreenSize);
@@ -59,7 +57,7 @@ const Sidebar = ({ isAsideOpen, setAsideOpen }) => {
 
 
   return (
-    <div className={`aside-bar-container ${!isAsideOpen ? 'margin-right ' : 'margin-right-not  '}  `} 
+    <div className={`aside-bar-container ${!isAsideOpen ? 'margin-right ' : 'margin-right-not'}`} 
     // onMouseEnter={e => handleHoverEffect()} onMouseLeave={e => handleHoverEffect()}
     >
       <div>
@@ -88,7 +86,7 @@ const Sidebar = ({ isAsideOpen, setAsideOpen }) => {
             )}
           </div>
           <div className="content">
-            <ul style={{ listStyleType: "none", padding: "0 2rem" }}>
+            <ul style={{ listStyleType: "none", padding: "0 1rem" }}>
               <div className="menu-title">
                 {!isAsideOpen ? "Main Menu" : "..."}
               </div>

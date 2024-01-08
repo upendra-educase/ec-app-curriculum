@@ -18,7 +18,7 @@ const NewCurriculam = () => {
 
     const [newCurriculamState, setNewCurriculamState] = useState('basic-details')
     const [country, setCountry] = useState(null)
-    // const [selectedOption, setSelectedOption] = useState(null);
+    const [selectedOption, setSelectedOption] = useState(null);
 
     function handleDropdown(countryName) {
         setCountry(countryName)
@@ -44,7 +44,7 @@ const NewCurriculam = () => {
     
     return (
         <div>
-            {/* <div className='d-flex align-items-center gap justify-content-between p-2 mx-2' >
+            <div className='d-flex align-items-center gap justify-content-between p-2 mx-2' >
                 <div className='d-flex .align-items-center gap'>
                     <div onClick={e => navigation(-1)} style={{ cursor: "pointer" }} >
                         <img src={leftArrow} />
@@ -106,12 +106,12 @@ const NewCurriculam = () => {
 
 
                 </div>
-            </Card> */}
-            <CardWithImage />
+            </Card>
+            {/* <CardWithImage />
 
             <AddLinkModal />
 
-            <SchoolCard />
+            <SchoolCard /> */}
 
 
         </div>
