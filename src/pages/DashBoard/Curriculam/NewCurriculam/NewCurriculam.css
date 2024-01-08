@@ -9,6 +9,10 @@
 
 .details-section {
     flex: 1;
+    /* background-color: #838383; */
+    /* height: 50px; */
+    /* overflow: hidden; */
+    z-index: 100;
 }
 
 .new-curriculam-first-part-section span {
@@ -17,6 +21,7 @@
     line-height: 20px;
     padding: 1rem;
     margin: 0.5rem 1.5rem 0;
+
 
 }
 
@@ -31,6 +36,10 @@
     margin: 0;
     padding: 0;
 }
+/* .new-curriculam-second-part-section{
+   min-width: 1000px;
+   overflow-x: scroll;
+} */
 
 .new-curriculam-second-part-section p {
     font-size: 14px;
@@ -38,6 +47,12 @@
     line-height: 20px;
     color: #838383;
     margin-top: 0.5rem;
+    /* white-space: nowrap;
+    overflow: hidden;
+    text-wrap: nowrap; */
+    /* min-width: 1000px !important; */
+    /* overflow: scroll !important; */
+    
 }
 
 .private-public-span {
