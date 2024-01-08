@@ -1,53 +1,40 @@
 import React, { useState } from 'react'
 import Datatable from '../../../components/DataTable/DataTable'
-import { Card, CardBody } from 'reactstrap'
+import leftArrow from "../../../images/leftArrow.svg"
+import { Card, CardBody, Col, Row } from 'reactstrap'
 import { FaEdit } from "react-icons/fa"
 import { RiShakeHandsFill } from "react-icons/ri"
 import TableOptions from "../../../components/table-options"
 import { Archive, ArrowDownCircle, CheckSquare, Layers, Printer } from 'react-feather'
 import Toggle from 'react-toggle'
+import ButtonComponent from '../../../components/button/ButtonComponent'
+import { useNavigate } from 'react-router-dom'
+import SchoolCard from '../../../components/common/SchoolCard'
 
 const Schools = () => {
+  const navigate = useNavigate()
   const [rowsPerPage, setRowsPerPage] = useState(10)
-  const [isActive, setIsActive] = useState([])
+  const [isActive, setIsActive] = useState(false)
 
   const columns = [
     {
+      name: "School",
+      cell: () => (<>Mapewood Academy</>)
+    },
+    {
+      name: "Branch",
+      cell: (row, i) => (<>Bangalore Campus</>)
+    },
+    {
       name: "Curriculum",
-      cell: () => (<>Mathematics in Real-World</>)
+      cell: () => (<>Digital Innovation</>)
     },
     {
       name: "Status",
-      cell: (row, i) => {
-
-        return (<>
-          <div className='toggle-div-style' style={{fontSize:"12px"}}>
-            <Toggle
-              icons={{
-                checked: "Active",
-                unchecked: "Inactive"
-              }}
-              onChange={() => {
-                if (isActive.includes(i)) {
-                  setIsActive(isActive.filter((io) => io !== i))
-                } else {
-                  setIsActive([...isActive, i])
-                }
-              }
-              }
-              checked={isActive.includes(i)}
-            />
-          </div>
-        </>)
-      }
-    },
-    {
-      name: "Active",
-      cell: () => (<>15</>)
-    },
-    {
-      name: "Active",
-      cell: () => (<>20</>)
+      cell: () => (<>
+        <div className='rounded-circle' style={{ width: "9px", height: '9px', backgroundColor: "#3DD598" }}></div>
+        <span className='px-2'>Active</span>
+      </>)
     },
     {
       name: "Option",
@@ -157,17 +144,48 @@ const Schools = () => {
   ]
   return (
     <>
-      <Card className='overflow-hidden'>
-        <Datatable
-          columns={columns}
-          tableData={[{}, {}, {}, {}, {}, {}]}
-          selectRow={true}
-          rowsPerPage={rowsPerPage}
-          totalPage={10}
-          paginate={true}
-          perPage={true}
-        />
-      </Card>
+      <div className='mb-3'>
+        <Card  >
+          <div className='d-flex justify-content-between align-items-center p-4 flex-wrap'>
+
+            <div className='d-flex justify-content-between align-items-center gap' >
+              <div className='d-flex justify-content-center align-items-center left-arrow-image' onClick={e => setIsActive(false)} >
+                <img src={leftArrow} />
+              </div>
+              <h2>School</h2>
+            </div>
+            <div className='d-flex justify-content-center align-items-center gap'>
+              <ButtonComponent buttonType={'secondary'} title={'Take A Tour'} />
+              <ButtonComponent buttonType={'primary'} title={'Add New'} onClick={e => setIsActive(true)} />
+            </div>
+
+          </div>
+        </Card>
+      </div>
+      {<>{
+        isActive ? (<>
+          <div></div>
+          <Row>
+            {[{}, {}, {}, {}, {}, {}].map(io => (<Col md="6" className='mb-4'>
+              <SchoolCard />
+            </Col>))}
+          </Row>
+
+        </>) : (<>
+          <Card className='overflow-hidden'>
+            <Datatable
+              columns={columns}
+              tableData={[{}, {}, {}, {}, {}, {}]}
+              selectRow={true}
+              rowsPerPage={rowsPerPage}
+              totalPage={5}
+              paginate={true}
+              perPage={true}
+            />
+          </Card>
+        </>)
+      }</>}
+
     </>
   )
 }
