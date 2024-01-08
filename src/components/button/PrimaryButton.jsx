@@ -6,7 +6,7 @@ const PrimaryButton = ({ title, type, onClick, disabled, className, name, style,
     const backgroundColor= "#4D8EFF"
     return (<>
         <button
-            className={`${disabled ? "primary-button-disabled" : "primary-button"} ${className}`}
+            className={`rounded-pill ${disabled ? "primary-button-disabled" : "primary-button"} ${className}`}
             style={{ width: widthFlag && "110px", backgroundColor, ...style }}
             type={type}
             form={form}
