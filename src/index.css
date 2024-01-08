@@ -13,7 +13,7 @@ body {
 }
 
 .default-text-color{
-  color: var(---primary);
+  color: #4D8EFF;
 }
 .default-text-background-color{
   background-color: var(---primary);
