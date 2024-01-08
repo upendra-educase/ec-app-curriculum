@@ -1,33 +1,171 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Datatable from '../../../components/DataTable/DataTable'
 import { Card, CardBody } from 'reactstrap'
+import { FaEdit } from "react-icons/fa"
+import { RiShakeHandsFill } from "react-icons/ri"
+import TableOptions from "../../../components/table-options"
+import { Archive, ArrowDownCircle, CheckSquare, Layers, Printer } from 'react-feather'
+import Toggle from 'react-toggle'
 
 const Schools = () => {
+  const [rowsPerPage, setRowsPerPage] = useState(10)
+  const [isActive, setIsActive] = useState([])
 
   const columns = [
     {
-      name: "Title",
-      cell: () => (<>buighkjjj</>)
+      name: "Curriculum",
+      cell: () => (<>Mathematics in Real-World</>)
     },
     {
-      name: "Title",
-      cell: () => (<>buighkjjj</>)
+      name: "Status",
+      cell: (row, i) => {
+
+        return (<>
+          <div className='toggle-div-style' style={{fontSize:"12px"}}>
+            <Toggle
+              icons={{
+                checked: "Active",
+                unchecked: "Inactive"
+              }}
+              onChange={() => {
+                if (isActive.includes(i)) {
+                  setIsActive(isActive.filter((io) => io !== i))
+                } else {
+                  setIsActive([...isActive, i])
+                }
+              }
+              }
+              checked={isActive.includes(i)}
+            />
+          </div>
+        </>)
+      }
     },
     {
-      name: "Title",
-      cell: () => (<>buighkjjj</>)
+      name: "Active",
+      cell: () => (<>15</>)
     },
     {
-      name: "Title",
-      cell: () => (<>buighkjjj</>)
+      name: "Active",
+      cell: () => (<>20</>)
     },
+    {
+      name: "Option",
+      center: true,
+      cell: row => {
+
+        const tableMenuType = [
+          {
+            value: "optionDropdown",
+            isActive: true
+          },
+          {
+            value: "optionIcon",
+            isActive: false
+          }
+        ]
+
+        const tableOptionArray = [
+          {
+            name: "Collect",
+            value: "collect",
+            icon: <FaEdit
+              size={tableMenuType.filter(io => io.isActive === true)[0].value === "optionDropdown" ? 15 : 18}
+              className={tableMenuType.filter(io => io.isActive === true)[0].value === "optionDropdown" ? "color-white" : "default-color"}
+            />,
+            className: "",
+            isActive: true
+          },
+          {
+            name: "Configure Fee",
+            value: "configureFee",
+            icon: <CheckSquare
+              size={tableMenuType.filter(io => io.isActive === true)[0].value === "optionDropdown" ? 15 : 18}
+              className={tableMenuType.filter(io => io.isActive === true)[0].value === "optionDropdown" ? "color-white" : "default-color"}
+            />,
+            className: "",
+            isActive: true
+          },
+          {
+            name: "Settlement",
+            value: "settlement",
+            icon: <RiShakeHandsFill
+              size={tableMenuType.filter(io => io.isActive === true)[0].value === "optionDropdown" ? 15 : 18}
+              className={tableMenuType.filter(io => io.isActive === true)[0].value === "optionDropdown" ? "color-white" : "default-color"}
+            />,
+            className: "",
+            isActive: true
+          },
+          {
+            name: "Print Fees",
+            value: "printfee",
+            icon: <Printer
+              size={tableMenuType.filter(io => io.isActive === true)[0].value === "optionDropdown" ? 15 : 18}
+              className={tableMenuType.filter(io => io.isActive === true)[0].value === "optionDropdown" ? "color-white" : "default-color"}
+            />,
+            className: "",
+            isActive: true
+          },
+          {
+            name: "Report",
+            value: "report",
+            icon: <ArrowDownCircle
+              size={tableMenuType.filter(io => io.isActive === true)[0].value === "optionDropdown" ? 15 : 18}
+              className={tableMenuType.filter(io => io.isActive === true)[0].value === "optionDropdown" ? "color-white" : "default-color"}
+            />,
+            className: "",
+            isActive: true
+          },
+          {
+            name: "Fee Structure",
+            value: "feeStructure",
+            icon: <Archive
+              size={tableMenuType.filter(io => io.isActive === true)[0].value === "optionDropdown" ? 15 : 18}
+              className={tableMenuType.filter(io => io.isActive === true)[0].value === "optionDropdown" ? "color-white" : "default-color"}
+            />,
+            className: "",
+            isActive: true
+          },
+          {
+            name: "Cofiguration Type",
+            value: "configureType",
+            icon: <Layers
+              size={tableMenuType.filter(io => io.isActive === true)[0].value === "optionDropdown" ? 15 : 18}
+              className={tableMenuType.filter(io => io.isActive === true)[0].value === "optionDropdown" ? "color-white" : "default-color"}
+            />,
+            className: "",
+            isActive: true
+          }
+        ]
+
+        const handleTableOption = (e) => {
+
+        }
+
+        return (<>
+          <div className="ml-2 view-table-option-tour">
+            <TableOptions
+              tableOptionArray={tableOptionArray.filter(io => io.isActive === true)}
+              handleTableOption={handleTableOption}
+              optionType={tableMenuType.filter(io => io.isActive)[0].value}
+            />
+          </div>
+
+        </>)
+      }
+    }
   ]
   return (
     <>
-      <Card>
+      <Card className='overflow-hidden'>
         <Datatable
           columns={columns}
           tableData={[{}, {}, {}, {}, {}, {}]}
+          selectRow={true}
+          rowsPerPage={rowsPerPage}
+          totalPage={10}
+          paginate={true}
+          perPage={true}
         />
       </Card>
     </>

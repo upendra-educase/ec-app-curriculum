@@ -7,6 +7,9 @@ import ReactPaginate from "react-paginate";
 import ClearButton from "../ClearButton";
 import PropTypes from "prop-types";
 import SearchBox from "../SearchBox";
+import { ChevronLeft, ChevronRight } from "react-feather";
+import "./index.css"
+import CustomInputComponent from "../common/customInput";
 // import CustomInputComponent from '../CustomInput/index'
 const CustomHeader = ({
   handleFilter,
@@ -20,9 +23,9 @@ const CustomHeader = ({
   const { t } = useTranslation();
 
   return (
-    <>
+    <div>
       <Row>
-        <Col md={12} className="d-flex">
+        <Col className="py-4">
           <div>
             {isSearchable && (
               <>
@@ -36,36 +39,15 @@ const CustomHeader = ({
               </>
             )}
           </div>
+
+        </Col>
+        <Col className="py-4">
           <div>
             <ClearButton />
           </div>
-          {/* <div className="flex-space-between-wrap">
-                    <div className='mb-1'>
-                        {tableData.length > 0 && (<>
-                            {perPage && (
-                                <Input
-                                    className="input-style"
-                                    type='select'
-                                    id='sort-select'
-                                    value={rowsPerPage}
-                                    onChange={e => handlePerPage(e)}
-                                    style={{ width: '100px' }}
-                                >
-                                    <option value={5}>5</option>
-                                    <option value={10}>10</option>
-                                    <option value={25}>25</option>
-                                    <option value={50}>50</option>
-                                    <option value={75}>75</option>
-                                    <option value={100}>100</option>
-                                </Input>
-                            )}
-                        </>)
-                        }
-                    </div>
-                </div> */}
         </Col>
       </Row>
-    </>
+    </div>
   );
 };
 function Datatable({
@@ -98,50 +80,75 @@ function Datatable({
   expandableRowsComponent,
 }) {
   const CustomPagination = () => {
-    return (
+    return (<div className="d-flex align-items-center justify-content-between px-2">
+      <div className="flex-space-between-wrap">
+        <div className='mb-1'>
+          {tableData.length > 0 && (<>
+            {perPage && (
+              <Input
+                className="input-style"
+                type='select'
+                id='sort-select'
+                value={rowsPerPage}
+                onChange={e => handlePerPage(e)}
+                style={{ width: '100px', color: "#4D8EFF" }}
+              >
+                <option value={5}>5</option>
+                <option value={10}>10</option>
+                <option value={25}>25</option>
+                <option value={50}>50</option>
+                <option value={75}>75</option>
+                <option value={100}>100</option>
+              </Input>
+            )}
+          </>)
+          }
+        </div>
+      </div>
       <ReactPaginate
         pageCount={totalPage}
-        nextLabel=""
+        nextLabel={<ChevronRight color="#4D8EFF" />}
         breakLabel="..."
-        previousLabel=""
+        previousLabel={<ChevronLeft color="#4D8EFF" />}
         activeClassName="active"
         breakClassName="page-item"
         breakLinkClassName="page-link"
         forcePage={currentPage !== 0 ? currentPage : 0}
         onPageChange={(page) => handlePagination(page)}
         pageClassName={"page-item"}
-        nextLinkClassName={"page-link"}
+        nextLinkClassName={""}
         nextClassName={"page-item next"}
         previousClassName={"page-item prev"}
-        previousLinkClassName={"page-link"}
+        previousLinkClassName={""}
         pageLinkClassName={"page-link"}
-        containerClassName={"pagination react-paginate justify-content-end p-1"}
+        containerClassName={"pagination react-paginate align-items-center py-4"}
       />
+    </div>
+
     );
   };
 
   let checkboxCount = 0;
-  // const CheckboxComponent = React.forwardRef(({ onClick, ...rest }, ref) => {
-  //     checkboxCount = checkboxCount + 1
-  //     return (<>
-  //         <CustomInputComponent
-  //             innerRef={ref}
-  //             onClick={onClick}
-  //             {...rest}
-  //             className='custom-control-Primary'
-  //             type="checkbox"
-  //             name="select-row-undefined"
-  //             ariaLabel="select-row-undefined"
-  //             id={`custom-checkbox-${checkboxCount}_${new Date().getMilliseconds()}_`}
-  //         />
-  //     </>)
-  // })
+  const CheckboxComponent = React.forwardRef(({ onClick, ...rest }, ref) => {
+    checkboxCount = checkboxCount + 1
+    return (<>
+      <CustomInputComponent
+        innerRef={ref}
+        onClick={onClick}
+        {...rest}
+        className='custom-control-Primary'
+        type="checkbox"
+        name="select-row-undefined"
+        ariaLabel="select-row-undefined"
+        id={`custom-checkbox-${checkboxCount}_${new Date().getMilliseconds()}_`}
+      />
+    </>)
+  })
 
   return (
     <>
       <div
         className="invoice-list-dataTable"
-        style={{ borderRadius: "0.428rem" }}
       >
         <DataTable
           noHeader={!noHeader}
@@ -150,7 +157,7 @@ function Datatable({
           selectableRows={selectRow}
           subHeader={!noHeader}
           onSelectedRowsChange={handleChecboxChange}
-          // selectableRowsComponent={CheckboxComponent}
+          selectableRowsComponent={CheckboxComponent}
           columns={columns}
           responsive={true}
           expandableRowsComponent={expandableRowsComponent}
@@ -203,15 +210,15 @@ Datatable.defaultProps = {
   columns: [],
   currentPage: 0,
   totalPage: 0,
-  handlePerPage: () => {},
-  handleFilter: () => {},
-  handlePagination: () => {},
+  handlePerPage: () => { },
+  handleFilter: () => { },
+  handlePagination: () => { },
   value: "",
   statusValue: "",
   rowsPerPage: 10,
-  handleStatusValue: () => {},
+  handleStatusValue: () => { },
   selectRow: false,
-  handleChecboxChange: () => {},
+  handleChecboxChange: () => { },
   paginate: true,
   isSearchable: true,
   perPage: true,
