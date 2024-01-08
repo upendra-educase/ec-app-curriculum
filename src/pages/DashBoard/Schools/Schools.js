@@ -10,9 +10,11 @@ import Toggle from 'react-toggle'
 import ButtonComponent from '../../../components/button/ButtonComponent'
 import { useNavigate } from 'react-router-dom'
 import SchoolCard from '../../../components/common/SchoolCard'
+import AssignComponent from "./AssignComponent"
 
 const Schools = () => {
   const navigate = useNavigate()
+  const [assignModule, setAssignModule] = useState(false)
   const [rowsPerPage, setRowsPerPage] = useState(10)
   const [isActive, setIsActive] = useState(false)
 
@@ -156,7 +158,7 @@ const Schools = () => {
             </div>
             <div className='d-flex justify-content-center align-items-center gap'>
               <ButtonComponent buttonType={'secondary'} title={'Take A Tour'} />
-              <ButtonComponent buttonType={'primary'} title={'Add New'} onClick={e => setIsActive(true)} />
+              <ButtonComponent buttonType={'primary'} title={'Add New'} onClick={e => setAssignModule(true)} />
             </div>
 
           </div>
@@ -185,7 +187,7 @@ const Schools = () => {
           </Card>
         </>)
       }</>}
-
+    <AssignComponent isOpen={assignModule} setIsOpen={setAssignModule}/>
     </>
   )
 }
