@@ -1,5 +1,6 @@
 import React from "react";
 import { ReactComponent as Delete } from "../../images/delete.svg";
+import { Trash2 } from "react-feather";
 import "./index.css";
 
 const ClearButton = ({ title = "Clear" }) => {
@@ -7,7 +8,7 @@ const ClearButton = ({ title = "Clear" }) => {
     <div className="clearBtn">
       <div>{title}</div>
       <div>
-        <Delete />
+        <Trash2 size={17} />
       </div>
     </div>
   );
