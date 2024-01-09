@@ -4,7 +4,7 @@
 } */
 
 .aside-bar {
-    width: 300px;
+    width: 400px;
     height: 100vh;
     background-color: #ffffff;
     /* background-color:rgba(126, 172, 157, 0.637); */
@@ -24,13 +24,14 @@
     z-index: 1000;
 }
 
-.margin-right {
-    margin-right: 20rem;
-    transition: all .7s;
-}
+.margin-right{
+margin-right: 27rem;
+transition: all .7s;
 
-.expandable:hover {
-    width: 300px;
+}  
+
+.expandable:hover{
+    width: 400px;
     height: 100vh;
     background-color: #ffffff;
     /* background-color:rgba(126, 172, 157, 0.637); */
@@ -49,8 +50,7 @@
     overflow: hidden;
     z-index: 1000;
 }
-
-.margin-right-not {
+.margin-right-not{
     margin-right: 8rem;
     transition: all .7s;
 }
@@ -65,7 +65,7 @@
 }
 
 .sideBarList:hover {
-    transform: translateX(4px);
+    transform: translateX(10px);
 }
 
 .aside-bar.open {
@@ -81,9 +81,9 @@
     cursor: pointer;
 }
 
-/* .content {
+.content {
     padding: 20px;
-} */
+}
 
 .content .menu-title {
     font-size: 12px;
@@ -94,14 +94,13 @@
 @media only screen and (max-width: 1200px) {
     .aside-bar-container {
         z-index: 100;
-        position: fixed;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        /* background-color: #a22e2e; */
+       position: fixed;
+       left: 0;
+       top: 0;
+       bottom: 0;
+       /* background-color: #a22e2e; */
     }
-
-    .hide {
+    .hide{
         transition: all .7s;
         width: 0;
     }

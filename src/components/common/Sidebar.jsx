@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavLink, Route, Routes } from "react-router-dom";
 import Home from "../../pages/DashBoard/Home/Home";
 import navigation from "../navigation/navigation";
-import Curriculam from "../../pages/DashBoard/Curriculum/Curriculum";
+import Curriculam from "../../pages/DashBoard/Curriculam/Curriculam";
 import Schools from "../../pages/DashBoard/Schools/Schools";
 import Subscriptions from "../../pages/DashBoard/Subscriptions/Subscriptions";
 import { Disc, Circle, X } from "react-feather";
@@ -88,7 +88,7 @@ const Sidebar = ({ isAsideOpen, setAsideOpen }) => {
             )}
           </div>
           <div className="content">
-            <ul style={{ listStyleType: "none", padding: "0 1rem" }}>
+            <ul style={{ listStyleType: "none", padding: "0 2rem" }}>
               <div className="menu-title">
                 {!isAsideOpen ? "Main Menu" : "..."}
               </div>

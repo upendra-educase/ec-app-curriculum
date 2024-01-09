@@ -15,8 +15,8 @@ const Subscriptions = loadable({
   loading: () => (<></>)
 })
 
-const Curriculum = loadable({
-  loader: () => import(/* webpackChunkName: 'Home' */'../../pages/DashBoard/Curriculum/Curriculum'),
+const Curriculam = loadable({
+  loader: () => import(/* webpackChunkName: 'Home' */'../../pages/DashBoard/Curriculam/Curriculam'),
   loading: () => (<></>)
 })
 
@@ -34,8 +34,8 @@ const AppRoutes = [
     Component: Subscriptions
   },
   {
-    path: "/curriculum",
-    Component: Curriculum
+    path: "/curriculam",
+    Component: Curriculam
   }
 ]
 

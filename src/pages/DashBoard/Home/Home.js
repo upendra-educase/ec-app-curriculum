@@ -19,34 +19,33 @@ const Home = () => {
                         <h2 style={{
                             color: "#4D8EFF"
                         }} >Welcome, Noia</h2>
-                        {/* <span>Home</span> */}
+                        <span>Home</span>
                     </div>
-                    <div className='d-flex align-items-center flex-wrap gap'>
+                    <div className='d-flex align-items-center gap'>
                         <div className='d-flex align-items-center home-input-section'>
                             < img src={search} />
                             <input type='text' placeholder='Search' />
                         </div>
-                        <div className='d-flex align-items-center'>
-                            <ButtonComponent buttonType={"secondary"} title={"Take a tour"} />
-                            <div >
-                                <img src={lang} />
-                            </div>
-                            <div>
-                                <img src={dashboard} />
-                            </div>
+                        <ButtonComponent buttonType={"secondary"} title={"Take a tour"} />
+                        <div >
+                            <img src={lang} />
+                        </div>
+                        <div>
+                            <img src={dashboard} />
                         </div>
                     </div>
                 </CardBody>
+
             </Card>
             <div className='mt-4 d-flex gap  flex-wrap'>
-                <div style={{ flex: 1 }}>
-                    <SchoolRequest />
-                    <Status />
-                </div>
-                <div style={{ flex: 1 }}>
-                    <TopSchool />
-                    <Recent />
-                </div>
+               <div style={{flex:1}}>
+               <SchoolRequest />
+                <Status />
+               </div>
+               <div style={{flex:1}}>
+                 <TopSchool />
+                 <Recent />
+               </div>
             </div>
         </div>
     )

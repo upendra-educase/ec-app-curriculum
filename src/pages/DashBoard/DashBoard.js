@@ -12,7 +12,7 @@ const DashBoard = () => {
 
       <Sidebar isAsideOpen={isAsideOpen} setAsideOpen={setAsideOpen} />
 
-      <div className='py-4 w-100 right'>
+      <div className='py-4 w-100'>
         <ActionBar isAsideOpen={isAsideOpen} setAsideOpen={setAsideOpen} />
         <Router />
       </div>

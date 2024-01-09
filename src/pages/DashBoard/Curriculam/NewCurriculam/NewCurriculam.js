@@ -5,14 +5,14 @@ import ButtonComponent from '../../../../components/button/ButtonComponent'
 import { useNavigate } from 'react-router-dom'
 import { Card, FormGroup } from 'react-bootstrap'
 import CustomInput from '../../../../components/CustomInput/CustomInput'
-import "./NewCurriculum.css"
+import "./NewCurriculam.css"
 import DropDown from '../../../../components/DropDown/DropDown'
 
-const NewCurriculum = () => {
+const NewCurriculam = () => {
 
     const navigation = useNavigate()
 
-    const [newCurriculumState, setNewCurriculumState] = useState('basic-details')
+    const [newCurriculamState, setNewCurriculamState] = useState('basic-details')
     const [country, setCountry] = useState(null)
     const [selectedOption, setSelectedOption] = useState(null);
 
@@ -21,10 +21,10 @@ const NewCurriculum = () => {
     }
 
     function handleCurriculamState() {
-        if (newCurriculumState === 'basic-details') {
-            setNewCurriculumState('content')
-        } else if (newCurriculumState === 'content') {
-            setNewCurriculumState('basic-details')
+        if (newCurriculamState === 'basic-details') {
+            setNewCurriculamState('content')
+        } else if (newCurriculamState === 'content') {
+            setNewCurriculamState('basic-details')
         }
     }
 
@@ -37,6 +37,7 @@ const NewCurriculum = () => {
         { value: 'bunch', label: 'Bunch' },
       ];
 
+     console.log(document.getElementById('selectCategory').value)
     return (
         <div>
             <div className='d-flex align-items-center gap justify-content-between p-2 mx-2' >
@@ -56,8 +57,8 @@ const NewCurriculum = () => {
                 <div className='d-flex flex-wrap'>
                     <div className='d-flex flex-column new-curriculam-first-part-section  ' >
                         <div className='d-flex justify-content-between basic-details-content-div'>
-                            <span onClick={e => handleCurriculamState()} style={{ color: newCurriculumState === 'basic-details' ? '#4D8EFF' : '#C4C4C4', borderBottom: newCurriculumState === 'basic-details' ? '4px solid #4D8EFF' : '#C4C4C4', cursor: 'pointer' }} >Basic Details</span>
-                            <span onClick={e => handleCurriculamState()} style={{ color: newCurriculumState === 'content' ? '#4D8EFF' : '#C4C4C4', borderBottom: newCurriculumState === 'content' ? '4px solid #4D8EFF' : '#C4C4C4', cursor: 'pointer' }}>Content</span>
+                            <span onClick={e => handleCurriculamState()} style={{ color: newCurriculamState === 'basic-details' ? '#4D8EFF' : '#C4C4C4', borderBottom: newCurriculamState === 'basic-details' ? '4px solid #4D8EFF' : '#C4C4C4', cursor: 'pointer' }} >Basic Details</span>
+                            <span onClick={e => handleCurriculamState()} style={{ color: newCurriculamState === 'content' ? '#4D8EFF' : '#C4C4C4', borderBottom: newCurriculamState === 'content' ? '4px solid #4D8EFF' : '#C4C4C4', cursor: 'pointer' }}>Content</span>
                         </div>
                         <div className='p-3 details-section d-flex flex-column gap'>
                             <CustomInput
@@ -119,4 +120,4 @@ const NewCurriculum = () => {
     )
 }
 
-export default NewCurriculum
+export default NewCurriculam
