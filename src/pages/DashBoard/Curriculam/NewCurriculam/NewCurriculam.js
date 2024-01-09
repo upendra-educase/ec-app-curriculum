@@ -32,7 +32,7 @@ const NewCurriculam = () => {
     const [selectedOption, setSelectedOption] = useState(null);
     const [isActive, setIsActive] = useState(true)
     const [isModalOpen, setIsModalOpen] = useState(false)
-    const [addFiles , setAddFiles] = useState(false)
+    const [addFiles, setAddFiles] = useState(false)
 
 
     function handleDropdown(countryName) {
@@ -57,8 +57,8 @@ const NewCurriculam = () => {
     }
 
     function handleFiles(e) {
-       setAddFiles(!addFiles)
-       console.log(addFiles)
+        setAddFiles(!addFiles)
+        console.log(addFiles)
     }
 
     const category = [
@@ -221,8 +221,8 @@ const NewCurriculam = () => {
                                     </div>
                                 </div>
                                 <div className='d-flex gap' >
-                                    <CardWithImage />
-                                    <CardWithImage />
+                                    <CardWithImage title={"History.pdf"} type={"pdf"} />
+                                    <CardWithImage title={"History.mp4"} type={"mp4"} />
                                 </div>
                                 <div className='d-flex justify-content-end flex-column gap'>
                                     <div style={{ alignSelf: 'flex-end' }}><ButtonComponent buttonType={'primary'} title={'Add Files'} onClick={e => handleFiles(e)} /></div>
