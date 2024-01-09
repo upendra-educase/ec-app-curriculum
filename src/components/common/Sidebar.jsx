@@ -143,12 +143,14 @@ const Sidebar = ({ isAsideOpen, setAsideOpen }) => {
               <div className="profile-image-section" >
                 <div> <img src={demoprofileImage} /></div>
               </div>
-              <div className="d-flex flex-column">
-                <span className="profile-name" > Noia Gomez</span>
-                <span className="profile-short-name" > noiagomez23</span>
-              </div>
+              {!isAsideOpen && (<>
+                <div className="d-flex flex-column">
+                  <span className="profile-name" > Noia Gomez</span>
+                  <span className="profile-short-name" > noiagomez23</span>
+                </div>
+              </>)}
             </div>
-            <div className="">
+            {/* <div className="">
               <div className=" d-flex justify-content-between align-items-center status-profile p-4 ">
                 <div className="d-flex flex-column">
                   <span className="complete-percentage">80% Completed!</span>
@@ -160,7 +162,7 @@ const Sidebar = ({ isAsideOpen, setAsideOpen }) => {
                   </div>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </Card>
       </div>

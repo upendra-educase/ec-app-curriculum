@@ -158,9 +158,9 @@ const Schools = () => {
           <div className='d-flex justify-content-between align-items-center p-4 flex-wrap'>
 
             <div className='d-flex justify-content-between align-items-center gap' >
-              <div className='d-flex justify-content-center align-items-center left-arrow-image' onClick={e => setIsActive(false)} >
+              {/* <div className='d-flex justify-content-center align-items-center left-arrow-image' onClick={e => setIsActive(false)} >
                 <img src={leftArrow} />
-              </div>
+              </div> */}
               <h2>School</h2>
             </div>
             <div className='d-flex justify-content-center align-items-center gap'>
