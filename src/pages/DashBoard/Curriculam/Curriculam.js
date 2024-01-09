@@ -184,7 +184,7 @@ const Curriculam = () => {
           <NewCurriculam />
       }
     </div>
-    <Card className='overflow-hidden'>
+    <Card className='overflow-auto'>
       <Datatable
         columns={columns}
         tableData={[{}, {}, {}, {}, {}, {}]}

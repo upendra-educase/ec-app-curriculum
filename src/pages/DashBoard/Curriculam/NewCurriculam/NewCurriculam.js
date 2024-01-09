@@ -3,7 +3,7 @@ import leftArrow from "../../../../images/leftArrow.svg"
 import newcurriculamImage from "../../../../images/newcurriculam.svg"
 import ButtonComponent from '../../../../components/button/ButtonComponent'
 import { useNavigate } from 'react-router-dom'
-import { Button, Card, CardBody, CardSubtitle, CardText, CardTitle, FormGroup } from 'react-bootstrap'
+import { Button, Card, CardBody, CardSubtitle, CardText, CardTitle, FormGroup, Row } from 'react-bootstrap'
 import CustomInput from '../../../../components/CustomInput/CustomInput'
 import "./NewCurriculam.css"
 import DropDown from '../../../../components/DropDown/DropDown'
@@ -16,7 +16,12 @@ import leftTiltedArrow from "../../../../images/leftTiltedArrow.svg"
 import rightTiltedArrow from "../../../../images/rightTiltedArrow.svg"
 import file from "../../../../images/addcuriculamfile.svg"
 import ModalAssign from './ModaAssign'
-import { func } from 'prop-types'
+import { element, func } from 'prop-types'
+import CustomInputComponent from '../../../../components/common/customInput'
+import crossArrow from "../../../../images/crossarrow.svg"
+import downArrow from '../../../../images/downarrow.svg'
+import completed from "../../../../images/completed.svg"
+import pdf from '../../../../images/pdf.svg'
 
 const NewCurriculam = () => {
 
@@ -27,10 +32,20 @@ const NewCurriculam = () => {
     const [selectedOption, setSelectedOption] = useState(null);
     const [isActive, setIsActive] = useState(true)
     const [isModalOpen, setIsModalOpen] = useState(false)
+    const [addFiles , setAddFiles] = useState(false)
 
 
     function handleDropdown(countryName) {
         setCountry(countryName)
+    }
+
+    const [subjectArray, setSubjectArray] = useState([])
+    const addFilesArray = [{}, {}]
+
+    function handleSubjectInput(e) {
+        const newArray = [...subjectArray];
+        newArray.push("");
+        setSubjectArray(newArray);
     }
 
     function handleCurriculamState() {
@@ -41,8 +56,9 @@ const NewCurriculam = () => {
         }
     }
 
-    function handleFiles(e){
-      
+    function handleFiles(e) {
+       setAddFiles(!addFiles)
+       console.log(addFiles)
     }
 
     const category = [
@@ -115,7 +131,37 @@ const NewCurriculam = () => {
 
 
                             </div> :
-                                <></>
+                                <div>
+                                    <div>
+                                        {
+                                            subjectArray.length > 0 ? subjectArray.map((element, idx) => {
+                                                return (
+                                                    <div className={`d-flex flex-column gap px-2 mb-2 ${idx === 0 ? 'mt-2' : ""}`}>
+                                                        <CustomInput
+                                                            placeholder={'Add Subject'}
+                                                            className={'curriculam-side-subject-section'}
+                                                        />
+                                                    </div>
+                                                )
+                                            }) : null
+                                        }
+                                    </div>
+                                    <div className='d-flex flex-column px-2 mb-4'>
+                                        <span style={{
+                                            fontSize: "16px",
+                                            fontWeight: "500",
+                                            color: "#4D8EFF",
+                                            cursor: 'pointer',
+                                            margin: '0'
+
+                                        }} onClick={e => handleSubjectInput()} >New Part</span>
+                                        <CustomInput
+                                            placeholder={'Add New Part'}
+                                            className={'curriculam-side-subject-section'}
+                                        />
+                                    </div>
+
+                                </div>
                         }
                         <div className='new-curriculam-sidebar-last'>
                             <div className='d-flex justify-content-between align-items-center mb-4 gap'>
@@ -178,25 +224,55 @@ const NewCurriculam = () => {
                                     <CardWithImage />
                                     <CardWithImage />
                                 </div>
-                                <div style={{ position: 'absolute', bottom: '10px', right: '10px' }}>
-                                    <ButtonComponent buttonType={'primary'} title={'Add Files'} onClick={e => handleFiles(e)}/>
-                                    <div> </div>
+                                <div className='d-flex justify-content-end flex-column gap'>
+                                    <div style={{ alignSelf: 'flex-end' }}><ButtonComponent buttonType={'primary'} title={'Add Files'} onClick={e => handleFiles(e)} /></div>
+                                    <div className={`pop-over  rounded ${addFiles ? '' : 'hidebox'}`} style={{ boxShadow: "0px 0px 12px 0px #002D7D33", minWidth: '300px', alignSelf: 'flex-end' }}>
+                                        <div className='d-flex justify-content-between align-items-center p-2  border-bottom' >
+                                            <div className='pop-over-files-details'>2 Files Uploading</div>
+                                            <div className='d-flex align-items-center'>
+                                                <div><img src={downArrow} /></div>
+                                                <div style={{ cursor: 'pointer' }} onClick={e => setAddFiles(!addFiles)}><img src={crossArrow} /></div>
+                                            </div>
+                                        </div>
+                                        <div className={`p-2 d-flex flex-column `} >
+
+
+                                            {
+                                                addFilesArray.map((element, idx) => {
+                                                    return (
+                                                        <div className='d-flex justify-content-between align-items-center mb-2'>
+                                                            <div className='d-flex align-items-center gap'>
+                                                                <div><img src={pdf} /></div>
+                                                                <div style={{
+                                                                    fontSize: "12px",
+                                                                    fontWeight: "500",
+                                                                    color: "#838383"
+
+                                                                }} >History.pdf</div>
+                                                            </div>
+                                                            <div><img src={completed} /></div>
+                                                        </div>
+                                                    )
+                                                })
+                                            }
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                     }
 
 
                 </div>
-            </Card>
+            </Card >
             {/* <CardWithImage />
 
             <AddLinkModal />
 
             <SchoolCard /> */}
 
-            <ModalAssign isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
+            < ModalAssign isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
 
-        </div>
+        </div >
     )
 }
 
