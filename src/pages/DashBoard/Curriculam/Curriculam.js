@@ -169,10 +169,10 @@ const Curriculam = () => {
           <div className='d-flex justify-content-between align-items-center p-4 flex-wrap'>
 
             <div className='d-flex justify-content-between align-items-center gap' >
-              <div className='d-flex justify-content-center align-items-center left-arrow-image'>
+              {/* <div className='d-flex justify-content-center align-items-center left-arrow-image'>
                 <img src={leftArrow} />
-              </div>
-              <h2>Curriculam</h2>
+              </div> */}
+              <h2>Curriculum</h2>
             </div>
             <div className='d-flex justify-content-center align-items-center gap'>
               <ButtonComponent buttonType={'secondary'} title={'Take A Tour'} />
