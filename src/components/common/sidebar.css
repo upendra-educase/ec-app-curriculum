@@ -4,7 +4,7 @@
 } */
 
 .aside-bar {
-    width: 350px;
+    width: 300px;
     height: 100vh;
     background-color: #ffffff;
     /* background-color:rgba(126, 172, 157, 0.637); */
@@ -25,13 +25,13 @@
 }
 
 .margin-right {
-    margin-right: 23rem;
+    margin-right: 20rem;
     transition: all .7s;
 
 }
 
 .expandable:hover {
-    width: 400px;
+    width: 350px;
     height: 100vh;
     background-color: #ffffff;
     /* background-color:rgba(126, 172, 157, 0.637); */
@@ -66,12 +66,12 @@
 }
 
 .sideBarList:hover {
-    transform: translateX(10px);
+    transform: translateX(5px);
 }
 
 .aside-bar.open {
-    width: 400px;
-    max-width: 400px;
+    width: 450px;
+    max-width: 450px;
 }
 
 .toggle-button {
