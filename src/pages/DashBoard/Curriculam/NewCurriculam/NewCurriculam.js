@@ -180,7 +180,7 @@ const NewCurriculam = () => {
                                 </div>
                                 <div style={{ position: 'absolute', bottom: '10px', right: '10px' }}>
                                     <ButtonComponent buttonType={'primary'} title={'Add Files'} onClick={e => handleFiles(e)}/>
-                                    <div>hello </div>
+                                    <div> </div>
                                 </div>
                             </div>
                     }
