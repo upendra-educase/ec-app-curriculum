@@ -94,8 +94,23 @@
     border-radius: 10px;
     padding: 1rem;
 }
+.curriculam-side-subject-section{
+    border: 1px solid #C0C0C0;
+    /* outline: none; */
+    border-radius: 10px;
+    padding: 0.5rem;
+}
+.pop-over-files-details{
+font-family: Montserrat;
+font-size: 16px;
+font-weight: 500;
 
+}
 
+.hidebox{
+    display: none !important;
+    transition: all 0.7ms
+}
 
 /* Curriculam Section Modal */
 
