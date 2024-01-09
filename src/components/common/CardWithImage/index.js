@@ -23,7 +23,7 @@ const CardWithImage = () => {
                     src="https://picsum.photos/300/200"
                     style={{ height: '100%', width: '100%', borderTopLeftRadius: '20px', borderTopRightRadius: '20px' }}
                 />
-                <div style={{ position: "absolute", top: '15px', right: '15px', height: "29px", width: '29px', borderRadius: "100%", backgroundColor: "#FFFFFF" }} className='d-flex justify-content-center align-items-center'>
+                <div style={{ position: "absolute", top: '15px', right: '15px', height: "29px", width: '29px', borderRadius: "100%", backgroundColor: "#FFFFFF",cursor:'pointer' }} className='d-flex justify-content-center align-items-center'>
                     <img src={cross} />
                 </div>
             </div>

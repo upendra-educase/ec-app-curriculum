@@ -11,6 +11,12 @@ import CardWithImage from '../../../../components/common/CardWithImage'
 import cross from '../../../../images/+.svg'
 import AddLinkModal from '../../../../components/common/AddLinkModal'
 import SchoolCard from '../../../../components/common/SchoolCard'
+import Toggle from 'react-toggle'
+import leftTiltedArrow from "../../../../images/leftTiltedArrow.svg"
+import rightTiltedArrow from "../../../../images/rightTiltedArrow.svg"
+import file from "../../../../images/addcuriculamfile.svg"
+import ModalAssign from './ModaAssign'
+import { func } from 'prop-types'
 
 const NewCurriculam = () => {
 
@@ -19,6 +25,9 @@ const NewCurriculam = () => {
     const [newCurriculamState, setNewCurriculamState] = useState('basic-details')
     const [country, setCountry] = useState(null)
     const [selectedOption, setSelectedOption] = useState(null);
+    const [isActive, setIsActive] = useState(true)
+    const [isModalOpen, setIsModalOpen] = useState(false)
+
 
     function handleDropdown(countryName) {
         setCountry(countryName)
@@ -32,6 +41,10 @@ const NewCurriculam = () => {
         }
     }
 
+    function handleFiles(e){
+      
+    }
+
     const category = [
         { value: 'chocolate', label: 'Chocolate' },
         { value: 'strawberry', label: 'Strawberry' },
@@ -41,7 +54,7 @@ const NewCurriculam = () => {
         { value: 'bunch', label: 'Bunch' },
     ];
 
-    
+
     return (
         <div>
             <div className='d-flex align-items-center gap justify-content-between p-2 mx-2' >
@@ -58,51 +71,119 @@ const NewCurriculam = () => {
 
 
             <Card className='m-4  ' >
-                <div className='d-flex flex-wrap'>
+                <div className='d-flex'>
                     <div className='d-flex flex-column new-curriculam-first-part-section  ' >
                         <div className='d-flex justify-content-between basic-details-content-div'>
                             <span onClick={e => handleCurriculamState()} style={{ color: newCurriculamState === 'basic-details' ? '#4D8EFF' : '#C4C4C4', borderBottom: newCurriculamState === 'basic-details' ? '4px solid #4D8EFF' : '#C4C4C4', cursor: 'pointer' }} >Basic Details</span>
                             <span onClick={e => handleCurriculamState()} style={{ color: newCurriculamState === 'content' ? '#4D8EFF' : '#C4C4C4', borderBottom: newCurriculamState === 'content' ? '4px solid #4D8EFF' : '#C4C4C4', cursor: 'pointer' }}>Content</span>
                         </div>
-                        <div className='p-3 details-section d-flex flex-column gap'>
-                            <CustomInput
-                                placeholder={'Enter Title'}
-                                className={'w-100 curriclam-side-input-section'}
-                            />
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" placeholder='Enter Description'></textarea>
-                            
-                            <DropDown
+                        {
+                            newCurriculamState === 'basic-details' ? <div className='p-3 details-section d-flex flex-column gap'>
+                                <CustomInput
+                                    placeholder={'Enter Title'}
+                                    className={'w-100 curriclam-side-input-section'}
+                                />
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" placeholder='Enter Description'></textarea>
 
-                                options={category}
-                                placeholder="Select Category"
-                                defaultValue={selectedOption}
-                                onChange={setSelectedOption}
-                                isClearable={true}
-                                id={'selectCategory'}
-                            />
+                                <DropDown
 
-                        </div>
+                                    options={category}
+                                    placeholder="Select Category"
+                                    defaultValue={selectedOption}
+                                    onChange={setSelectedOption}
+                                    isClearable={true}
+                                    id={'selectCategory'}
+                                />
+                                <DropDown
+
+                                    options={category}
+                                    placeholder="Select Category"
+                                    defaultValue={selectedOption}
+                                    onChange={setSelectedOption}
+                                    isClearable={true}
+                                    id={'selectCategory'}
+                                />
+                                <DropDown
+
+                                    options={category}
+                                    placeholder="Select Category"
+                                    defaultValue={selectedOption}
+                                    onChange={setSelectedOption}
+                                    isClearable={true}
+                                    id={'selectCategory'}
+                                />
+
+
+                            </div> :
+                                <></>
+                        }
                         <div className='new-curriculam-sidebar-last'>
-                            <div className='d-flex justify-content-between align-items-center mb-4'>
+                            <div className='d-flex justify-content-between align-items-center mb-4 gap'>
                                 <div className='d-flex flex-column' >
                                     <span className='private-public-span'>Private/Public</span>
                                     <span className='setcurriculam-span'>Set the curriculum public  </span>
                                 </div>
-                                <div>Toggle button</div>
+                                <div><>
+                                    <div className='toggle-div-style' style={{ fontSize: "12px" }}>
+                                        <Toggle
+                                            defaultChecked={true}
+                                            icons={{
+                                                checked: "Active",
+                                                unchecked: "Inactive"
+                                            }}
+                                            onChange={() => {
+                                                setIsActive(!isActive)
+                                            }
+                                            }
+                                            // checked={isActive.includes(i)}
+                                            checked={isActive}
+                                        />
+                                    </div>
+                                </></div>
                             </div>
+                            {
+                                newCurriculamState === 'basic-details' ?
+                                    <div>
+                                        <button type="button" className="btn btn-primary w-100 py-2">Next</button>
+                                    </div> :
+                                    <div>
+                                        <button type="button" className="btn btn-primary w-100 py-2" onClick={e => setIsModalOpen(true)}>Publish</button>
+                                    </div>
+                            }
+                        </div>
+                    </div>
+
+
+                    {
+                        newCurriculamState === 'basic-details' ? <div className='d-flex flex-column gap justify-content-center align-items-center flex-grow-1 new-curriculam-second-part-section' >
                             <div>
-                                <button type="button" className="btn btn-primary w-100 py-2">Next</button>
+                                <img src={newcurriculamImage} />
                             </div>
-                        </div>
-                    </div>
-
-
-                    <div className='d-flex flex-column gap justify-content-center align-items-center flex-grow-1 new-curriculam-second-part-section' >
-                        <div>
-                            <img src={newcurriculamImage} />
-                        </div>
-                        <p >Get started by simply clicking the <span>Next</span></p>
-                    </div>
+                            <p >Get started by simply clicking the <span>Next</span></p>
+                        </div> :
+                            <div className=' d-flex gap flex-wrap flex-column flex-grow-1 new-curriculam-second-part-section p-4' style={{ position: 'relative' }} >
+                                <div className=' d-flex gap flex-wrap justify-content-between align-items-center' >
+                                    <div className='d-flex gap align-items-center add-curriculam-section-div'>
+                                        <div className='d-flex align-items-center justify-content-center'>
+                                            <img src={file} />
+                                        </div>
+                                        <h2>Add Curriculum </h2>
+                                    </div>
+                                    <div className='d-flex gap'>
+                                        <img src={leftTiltedArrow} style={{ cursor: 'pointer' }} />
+                                        <img src={rightTiltedArrow} style={{ cursor: 'pointer' }} />
+                                    </div>
+                                </div>
+                                <div className='d-flex gap' >
+                                    <CardWithImage />
+                                    <CardWithImage />
+                                </div>
+                                <div style={{ position: 'absolute', bottom: '10px', right: '10px' }}>
+                                    <ButtonComponent buttonType={'primary'} title={'Add Files'} onClick={e => handleFiles(e)}/>
+                                    <div> </div>
+                                </div>
+                            </div>
+                    }
 
 
                 </div>
@@ -113,6 +194,7 @@ const NewCurriculam = () => {
 
             <SchoolCard /> */}
 
+            <ModalAssign isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
 
         </div>
     )
