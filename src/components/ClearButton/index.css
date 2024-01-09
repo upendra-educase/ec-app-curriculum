@@ -22,3 +22,8 @@
 .deleteIcon {
     fill: white;
 }
+.custom-icon{
+    fill: red !important;
+    color: red !important;
+    /* background-color: red; */
+}

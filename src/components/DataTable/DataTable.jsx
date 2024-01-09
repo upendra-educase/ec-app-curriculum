@@ -8,9 +8,11 @@ import ClearButton from "../ClearButton";
 import PropTypes from "prop-types";
 import SearchBox from "../SearchBox";
 import { ChevronLeft, ChevronRight } from "react-feather";
-import "./index.css"
 import CustomInputComponent from "../common/customInput";
 // import CustomInputComponent from '../CustomInput/index'
+import "./index.css"
+import FilterBtn from "../FilterBtn";
+
 const CustomHeader = ({
   handleFilter,
   value,
@@ -44,6 +46,9 @@ const CustomHeader = ({
 
         </Col>
         <Col className="py-4 gap-3 d-flex align-items-center">
+         <div>
+          <FilterBtn/>
+         </div>
           <div>
             <ClearButton />
           </div>
