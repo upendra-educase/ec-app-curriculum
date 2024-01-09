@@ -4,15 +4,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to left, blue 0 40% , #ffff 40% 100%);
 }
 
 .login-container {
     /* background-color: aliceblue; */
     display: flex;
-    gap: 2rem;
-    padding: 4rem;
-    min-width: 65%;
+    justify-content: space-between;
+    gap: 4rem;
+    width: 100%;
+    padding-inline: 7rem;
+    /* padding: 4rem; */
+    /* min-width: 65%; */
 }
 
 .left-side{
@@ -20,6 +22,7 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    width: 100%;
 }
 
 
@@ -46,7 +49,27 @@
 }
 
 .form-floating #floatingInput , .form-floating #floatingPassword { 
-    border-radius: 20px !important;
+    border-radius: 12px !important;
+}
+
+/* Target autofill background for the email input */
+#floatingInput:-webkit-autofill {
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Reset background color for the email input */
+#floatingInput:focus {
+    background-color: transparent !important;
+}
+
+/* Target autofill background for the password input */
+#floatingPassword:-webkit-autofill {
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Reset background color for the password input */
+#floatingPassword:focus {
+    background-color: transparent !important;
 }
 
 .common-style{
@@ -56,8 +79,8 @@
     ;
 }
 .right-side {
-    width: 593.29px;
-    height: 597px;
+    width: 500px;
+    height: 507px;
 }
 .right-side img{
     height: 100%;
@@ -71,4 +94,10 @@
 }
 .last-div-element p span{
     font-weight: 600;
+}
+.help-text{
+    z-index: 99;
+    color: rgba(77, 142, 255, 1);
+    font-size: 12px;
+    cursor: pointer;
 }

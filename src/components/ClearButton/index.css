@@ -1,6 +1,7 @@
 .clearBtn {
     width: 89px;
     display: flex;
+    align-items: center;
     border-radius: 45px;
     border: 2px solid #649DFF;
     color: #649DFF;
@@ -8,6 +9,7 @@
     font-weight: 400;
     padding: 8px 10px 8px 10px;
     gap: 6px;
+    height: 37px;
     transition: all .4s;
 }
 
