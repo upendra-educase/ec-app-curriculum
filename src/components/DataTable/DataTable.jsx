@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DataTable from "react-data-table-component";
 import { Col, CustomInput, Input, Row } from "reactstrap";
 import { useTranslation } from "react-i18next";
-import { ChevronDown } from "react-feather";
+import { ChevronDown, Grid, List } from "react-feather";
 import ReactPaginate from "react-paginate";
 import ClearButton from "../ClearButton";
 import PropTypes from "prop-types";
@@ -19,6 +19,8 @@ const CustomHeader = ({
   isSearchable,
   perPage,
   tableData,
+  setDataShowType,
+  dataShowType
 }) => {
   const { t } = useTranslation();
 
@@ -41,10 +43,14 @@ const CustomHeader = ({
           </div>
 
         </Col>
-        <Col className="py-4">
+        <Col className="py-4 gap-3 d-flex align-items-center">
           <div>
             <ClearButton />
           </div>
+          {dataShowType && <>
+            <List onClick={() => setDataShowType("list")} color={dataShowType === "list" ? "#4D8EFF" : "#C4C4C4"} />
+            <Grid onClick={() => setDataShowType("grid")} color={dataShowType === "grid" ? "#4D8EFF" : "#C4C4C4"} />
+          </>}
         </Col>
       </Row>
     </div>
@@ -78,6 +84,8 @@ function Datatable({
   expandableRows,
   customStyles,
   expandableRowsComponent,
+  dataShowType,
+  setDataShowType
 }) {
   const CustomPagination = () => {
     return (<div className="d-flex align-items-center justify-content-between px-2">
@@ -190,6 +198,8 @@ function Datatable({
                       isSearchable={isSearchable}
                       perPage={perPage}
                       tableData={tableData}
+                      setDataShowType={setDataShowType}
+                      dataShowType={dataShowType}
                     />
                   </>
                 )}

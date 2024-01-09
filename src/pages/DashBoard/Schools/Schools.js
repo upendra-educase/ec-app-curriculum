@@ -5,18 +5,25 @@ import { Card, CardBody, Col, Row } from 'reactstrap'
 import { FaEdit } from "react-icons/fa"
 import { RiShakeHandsFill } from "react-icons/ri"
 import TableOptions from "../../../components/table-options"
-import { Archive, ArrowDownCircle, CheckSquare, Layers, Printer } from 'react-feather'
+import { Archive, ArrowDownCircle, CheckSquare, Layers, Printer, List, Grid } from 'react-feather'
 import Toggle from 'react-toggle'
 import ButtonComponent from '../../../components/button/ButtonComponent'
 import { useNavigate } from 'react-router-dom'
 import SchoolCard from '../../../components/common/SchoolCard'
 import AssignComponent from "./AssignComponent"
+import "./index.css"
+import ClearButton from '../../../components/ClearButton'
 
+{/* <div className="d-flex">
+            <List color={Date}/>
+            <Grid color={Date}/>
+          </div> */}
 const Schools = () => {
   const navigate = useNavigate()
   const [assignModule, setAssignModule] = useState(false)
   const [rowsPerPage, setRowsPerPage] = useState(10)
   const [isActive, setIsActive] = useState(false)
+  const [dataShowType, setDataShowType] = useState("list")
 
   const columns = [
     {
@@ -164,9 +171,21 @@ const Schools = () => {
           </div>
         </Card>
       </div>
-      {<>{
-        isActive ? (<>
-          <div></div>
+      <>
+        {dataShowType === "grid" ? (<>
+          <div className='d-flex justify-content-end'>
+            <div className='mt-1 px-2'>
+              <ClearButton />
+            </div>
+            <div className="d-flex gap-3 grid-list-container align-items-center">
+              <div>
+                <List onClick={() => setDataShowType("list")} color={dataShowType === "list" ? "#4D8EFF" : "#C4C4C4"} />
+              </div>
+              <div className='pl-1'>
+                <Grid onClick={() => setDataShowType("grid")} color={dataShowType === "grid" ? "#4D8EFF" : "#C4C4C4"} />
+              </div>
+            </div>
+          </div>
           <Row>
             {[{}, {}, {}, {}, {}, {}].map(io => (<Col md="6" className='mb-4'>
               <SchoolCard />
@@ -183,11 +202,13 @@ const Schools = () => {
               totalPage={5}
               paginate={true}
               perPage={true}
+              dataShowType={dataShowType}
+              setDataShowType={setDataShowType}
             />
           </Card>
         </>)
-      }</>}
-    <AssignComponent isOpen={assignModule} setIsOpen={setAssignModule}/>
+        }</>
+      <AssignComponent isOpen={assignModule} setIsOpen={setAssignModule} />
     </>
   )
 }

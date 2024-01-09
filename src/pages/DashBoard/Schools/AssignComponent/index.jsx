@@ -16,7 +16,7 @@ const AssignComponent = ({ isOpen, setIsOpen }) => {
                     </div>
                     <h2>Assign</h2>
                 </div>
-                <div>
+                <div onClick={() => setIsOpen(!isOpen)}>
                     <X size={30} color='#C4C4C4' strokeWidth={3.5}/>
                 </div>
             </div>

@@ -14,7 +14,7 @@ const SchoolCard = () => {
             <div>
                 <div className='d-flex justify-content-between p-3' style={{ borderBottom: "1px solid #DEDEDE" }}>
                     <div className='d-flex gap'>
-                        <div style={{ backgroundColor: "#4D8EFF", borderRadius: "10px" }} className='d-flex justify-content-center align-items-center p-1'><img src={file} /></div>
+                        <div style={{ backgroundColor: "#4D8EFF33", borderRadius: "10px" }} className='d-flex justify-content-center align-items-center p-1'><img src={file} /></div>
                         <div className='d-flex flex-column'>
                             <span style={{
                                 fontSize: "16px",
