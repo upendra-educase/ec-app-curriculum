@@ -1,0 +1,10 @@
+.data-type-icon{
+    background-color: rgba(77, 142, 255, 1);
+    color: white;
+    height: 37.83px;
+    width: 37.83px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}

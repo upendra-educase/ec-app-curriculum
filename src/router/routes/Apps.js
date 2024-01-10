@@ -20,6 +20,10 @@ const Curriculam = loadable({
   loading: () => (<></>)
 })
 
+const AddCurriculum = loadable({
+  loader: () => import(/* webpackChunkName: 'Home' */'../../pages/DashBoard/Curriculam/NewCurriculam/NewCurriculam'),
+  loading: () => (<></>)
+})
 const AppRoutes = [
   {
     path: "/",
@@ -36,6 +40,10 @@ const AppRoutes = [
   {
     path: "/curriculam",
     Component: Curriculam
+  },
+  {
+    path: "/addcurriculam",
+    Component: AddCurriculum
   }
 ]
 
